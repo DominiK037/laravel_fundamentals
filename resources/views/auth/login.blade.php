@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:heading>
-        Register
+        Login
     </x-slot:heading>
 
     <form method="POST" action="/login">
