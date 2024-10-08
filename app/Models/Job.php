@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Notifications\Notifiable;
 
 class Job extends Model
@@ -14,13 +15,9 @@ class Job extends Model
 
     protected $guarded = [];
 
-    public static function create(array $array)
+    public function employer(): BelongsTo
     {
-    }
-
-    public function employer()
-    {
-        return $this->belongsTo(Employer::class);
+        return $this->belongsTo(Employer::class, 'employer_id', 'id', 'employer_id');
     }
 
     public function tags()
